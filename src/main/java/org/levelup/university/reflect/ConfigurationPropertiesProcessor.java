@@ -23,7 +23,7 @@ public class ConfigurationPropertiesProcessor {
             System.out.println("");
             throw new RuntimeException(exc);
         } catch (IllegalAccessException exc){
-            System.out.println("Couldnt set property value to object field");
+            System.out.println("Couldn't set property value to object field");
             throw new RuntimeException();
         }
     }

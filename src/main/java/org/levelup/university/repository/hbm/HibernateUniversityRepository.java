@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.levelup.university.domain.Faculty;
 import org.levelup.university.domain.University;
 import org.levelup.university.repository.UniversityRepository;
 
@@ -27,6 +28,27 @@ public class HibernateUniversityRepository implements UniversityRepository {
     @Override
     public University deleteUniversity(Long universityId) {
         return null;
+    }
+
+    @Override
+    public University createUniversity(String name, String shortName, Integer fYear, List<String> facultyNames) {
+        try (Session session = factory.openSession()){
+            Transaction tx = session.beginTransaction();
+            University university = new University(name, shortName, fYear);
+
+            for(String facultyName : facultyNames) {
+                Faculty faculty = new Faculty();
+                faculty.setName(facultyName);
+                faculty.setUniversity(university);
+
+                university.getFaculties().add(faculty);
+            }
+            session.persist(university); //здесь отрабатывает cascade
+            tx.commit();
+            return university;
+
+        }
+
     }
 
     @Override

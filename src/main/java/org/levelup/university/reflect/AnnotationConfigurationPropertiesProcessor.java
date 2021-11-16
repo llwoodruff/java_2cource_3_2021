@@ -58,7 +58,7 @@ public class AnnotationConfigurationPropertiesProcessor {
                 String propertyValue = properties.get(key);
 
                 field.setAccessible(true);
-                field.set(DatabaseConfiguration.getInstance(), castStringToField(field.getType(), propertyValue));
+                field.set(DatabaseConfiguration.getInstance(), castStringToField(field.getType(), propertyValue)); //getInstance - сингелтон, те чтобы заполнялось только в одном месте
 
             }
 

@@ -64,6 +64,11 @@ public class JdbcUniversityRepository implements UniversityRepository{
         return null;
     }
 
+    @Override
+    public University createUniversity(String name, String shortName, Integer fYear, List<String> facultyName) {
+        return null;
+    }
+
 
     @Override
     public  University createUniversity(String name, String shortName, Integer fYear){

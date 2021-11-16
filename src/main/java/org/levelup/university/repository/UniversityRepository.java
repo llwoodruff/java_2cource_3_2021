@@ -14,6 +14,8 @@ public interface UniversityRepository {
 
     University deleteUniversity(/*String shortName*/ Long universityId);
 
+    University createUniversity(String name, String shortName, Integer fYear, List<String> facultyName);
+
     University findByUniversityId(long universityId);
 
 }

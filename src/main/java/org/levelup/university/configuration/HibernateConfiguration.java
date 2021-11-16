@@ -4,6 +4,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.levelup.university.domain.Faculty;
 import org.levelup.university.domain.University;
 import org.postgresql.Driver;
 
@@ -25,7 +26,8 @@ public class HibernateConfiguration {
                 .build();
 
         Configuration cfg = new Configuration()
-                .addAnnotatedClass(University.class);
+                .addAnnotatedClass(University.class)
+                .addAnnotatedClass(Faculty.class); //нужно обязательно добавлять типы классов
 
         factory = cfg.buildSessionFactory(ssr);
     }
