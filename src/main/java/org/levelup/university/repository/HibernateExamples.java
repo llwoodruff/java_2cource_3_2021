@@ -29,10 +29,10 @@ public class HibernateExamples {
 */
         UniversityRepository universityRepository = new HibernateUniversityRepository(factory);
         University u = universityRepository.createUniversity(
-                "Российский новый университет",
-                "РНУ",
+                "Российский новый университет1",
+                "РНУ1",
                 1991,
-                List.of("Гуманитерный институт", "Налоговый институт")
+                List.of("Гуманитерный институт1", "Налоговый институт1")
         );
 
         System.out.println(u);

@@ -12,8 +12,9 @@ import java.util.List;
 @Entity
 @Table(name = "university")
 @ToString
-@AllArgsConstructor
+@EqualsAndHashCode
 @NoArgsConstructor
+@AllArgsConstructor
 public class University {
 
     //Над каждой колнкой аннотоции @Id @GeneratedValue @Column(name = "id")

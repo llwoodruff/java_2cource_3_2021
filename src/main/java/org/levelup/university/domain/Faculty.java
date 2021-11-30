@@ -12,7 +12,7 @@ import java.util.List;
 @ToString(exclude = {
         "university",
         "subjects"
-}) //
+}) // toString только двух полей (id, name)
 public class Faculty {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //говорит Hibernate, что данное поле генерируется автоматически. Без этой аннотации но при наличии аннотации  @Id, будет проблема
@@ -30,7 +30,7 @@ public class Faculty {
     @ManyToMany(mappedBy = "faculties", cascade = CascadeType.PERSIST)
     private List<Subject> subjects;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(referencedColumnName = "faculty_id") //name тоже не подсвечивалась красным
     private FacultyInfo info;
 

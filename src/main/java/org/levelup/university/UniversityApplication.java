@@ -30,17 +30,17 @@ public class UniversityApplication {
 
         System.out.println("University application has been started");
 
-        UniversityRepository universityRepository = new HibernateUniversityRepository(factory);
+        //UniversityRepository universityRepository = new HibernateUniversityRepository(factory);
         //University u = universityRepository.createUniversity("Высшая школа экономики", "ВШЭ", null);
         //System.out.println(u);
-        List<University> universities = universityRepository.findAll();
+       /* List<University> universities = universityRepository.findAll();
         for(University u : universities){
             System.out.println(u);
         }
+*/
+      //  factory.close();// иначе не закроется соединение
 
-        factory.close();// иначе не закроется соединение
-
-        //Connection connection = dbService.openConnection();
+       // Connection connection = dbService.openConnection();
        // Connection proxy = dbService.openConnection();
 
        // proxy.close(); //соединенние не закроется, а вернется в пул

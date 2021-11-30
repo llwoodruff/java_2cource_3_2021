@@ -1,11 +1,13 @@
 package org.levelup.university.reflection;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-import java.sql.Connection;
 import java.util.Arrays;
 
 public class JavaReflectionExamples {
+    private static Annotation[] Annotations;
+
     public static void main(String[] args) throws IllegalAccessException, NoSuchFieldException {
         //
         Subject subject = new Subject("курлык", 1);
@@ -20,6 +22,10 @@ public class JavaReflectionExamples {
         for(Field field : fields){
             System.out.println(field.getType() + " "+ field.getName());
         }
+
+         Annotations= subjectClass.getDeclaredAnnotations();
+
+        System.out.println(Annotations);
 
         System.out.println("Constructors...");
         Constructor<?>[] constructors = subjectClass.getDeclaredConstructors();

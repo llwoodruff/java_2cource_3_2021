@@ -12,6 +12,6 @@ public @interface RandomInt {
     String key2();*/
 
 
-   int key();
+    int key();
     int key2();
 }
